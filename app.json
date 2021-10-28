@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/demo01/demo01",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "计算器-微信小程序版",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+    {
+      "pagePath": "pages/demo01/demo01",
+      "text": "计算器",
+      "iconPath": "icon/计算器.png",
+      "selectedIconPath": "icon/计算器_o.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "用户",
+      "iconPath": "icon/用户.png",
+      "selectedIconPath": "icon/用户-fill.png"
+    }
+  ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
