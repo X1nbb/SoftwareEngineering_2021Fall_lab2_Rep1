@@ -1,10 +1,10 @@
 package P3;
 
 public class Person {
-	private String name;	//ÈËÃû
-	private int id = -1;	//ÓÃÓÚÔÚÁÚ½Ó¾ØÕóÖĞÈ·¶¨Õâ¸öÈËµÄÎ»ÖÃ
+	private String name;	//äººå
+	private int id = -1;	//ç”¨äºåœ¨é‚»æ¥çŸ©é˜µä¸­ç¡®å®šè¿™ä¸ªäººçš„ä½ç½®
 
-	/* Ä¬ÈÏ¹¹Ôì */
+	/* é»˜è®¤æ„é€  */
 	public Person(String name) {
 		this.name = name;
 	}
@@ -22,3 +22,7 @@ public class Person {
 		return this.name;
 	}
 }
+
+
+
+//åœ¨Person.javaæ–‡ä»¶ä¸­æ–°å¢å†…å®¹
