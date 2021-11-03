@@ -1,5 +1,8 @@
 package P3;
 
+
+//C4鍒嗘敮淇敼鍐呭
+//C4鍒嗘敮淇敼鏂囦欢
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Queue;
@@ -7,9 +10,9 @@ import java.util.LinkedList;
 
 
 public class FriendshipGraph {
-	/* 邻接矩阵 */
+	/* 脕脷陆脫戮脴脮贸 */
 	private ArrayList<ArrayList> Graph = new ArrayList<>();
-	/* 利用HashSet判断新添加的人是否重名 */
+	/* 脌没脫脙HashSet脜脨露脧脨脗脤铆录脫碌脛脠脣脢脟路帽脰脴脙没 */
 	private HashSet nameSet = new HashSet();
 
 	public static void main(String[] argv) {
@@ -33,66 +36,66 @@ public class FriendshipGraph {
 	}
 
 	public void addVertex(Person newPerson) {
-		//未在图中节点的标识符
+		//脦麓脭脷脥录脰脨陆脷碌茫碌脛卤锚脢露路没
 		int TRUE_NEW_PERSON = -1;
 
-		//避免重复添加
+		//卤脺脙芒脰脴赂麓脤铆录脫
 		if (newPerson.getId() == TRUE_NEW_PERSON) {
 
-			/* 重名的处理 */
+			/* 脰脴脙没碌脛麓娄脌铆 */
 			if (this.nameSet.contains(newPerson.getName())) {
-				System.out.println(newPerson.getName() + "重名");
+				System.out.println(newPerson.getName() + "脰脴脙没");
 				System.exit(0);
 			}
 
-			//新建boolean型数组，描述新加入Person的邻接矩阵，同时对原来的每个节点的邻接矩阵增加一列false
+			//脨脗陆篓boolean脨脥脢媒脳茅拢卢脙猫脢枚脨脗录脫脠毛Person碌脛脕脷陆脫戮脴脮贸拢卢脥卢脢卤露脭脭颅脌麓碌脛脙驴赂枚陆脷碌茫碌脛脕脷陆脫戮脴脮贸脭枚录脫脪禄脕脨false
 			ArrayList<Boolean> newList = new ArrayList<Boolean>();
 			for (int i = 0; i < this.Graph.size(); i++) {
-				newList.add(false);	//不加入边，先赋值false
-				Graph.get(i).add(false);	//原来每个节点和这个节点没有边，也是false
+				newList.add(false);	//虏禄录脫脠毛卤脽拢卢脧脠赂鲁脰碌false
+				Graph.get(i).add(false);	//脭颅脌麓脙驴赂枚陆脷碌茫潞脥脮芒赂枚陆脷碌茫脙禄脫脨卤脽拢卢脪虏脢脟false
 			}
-			newList.add(true);	//自己到自己赋值为true
-			Graph.add(newList);	//在整个邻接表中加上最后一行
-			this.nameSet.add(newPerson.getName());	//名字集合中添加新节点的名字
-			newPerson.setId(this.Graph.size() - 1);	//新节点的ID改为总人数-1
+			newList.add(true);	//脳脭录潞碌陆脳脭录潞赂鲁脰碌脦陋true
+			Graph.add(newList);	//脭脷脮没赂枚脕脷陆脫卤铆脰脨录脫脡脧脳卯潞贸脪禄脨脨
+			this.nameSet.add(newPerson.getName());	//脙没脳脰录炉潞脧脰脨脤铆录脫脨脗陆脷碌茫碌脛脙没脳脰
+			newPerson.setId(this.Graph.size() - 1);	//脨脗陆脷碌茫碌脛ID赂脛脦陋脳脺脠脣脢媒-1
 
 		}
-		else {	//重复添加的处理
-			System.out.println( newPerson.getName() + "已经添加到图中啦！" );
+		else {	//脰脴赂麓脤铆录脫碌脛麓娄脌铆
+			System.out.println( newPerson.getName() + "脪脩戮颅脤铆录脫碌陆脥录脰脨脌虏拢隆" );
 		}
 	}
 
 	public void addEdge(Person person1, Person person2) {
-		//添加边，把邻接矩阵中的false改为true即可
+		//脤铆录脫卤脽拢卢掳脩脕脷陆脫戮脴脮贸脰脨碌脛false赂脛脦陋true录麓驴脡
 		Graph.get(person1.getId()).set(person2.getId(), true);
 	}
 
 	public int getDistance(Person person1, Person person2) {
-		/* 广度优先搜索计算最短路径-邻接矩阵实现-借助队列 */
+		/* 鹿茫露脠脫脜脧脠脣脩脣梅录脝脣茫脳卯露脤脗路戮露-脕脷陆脫戮脴脮贸脢碌脧脰-陆猫脰煤露脫脕脨 */
 
-		Queue<Integer> queue = new LinkedList<>();	//链表实现的队列
-		boolean[] visited = new boolean[this.Graph.size()];	//标记访问过的节点的数组
-		int[] distance = new int[this.Graph.size()];	//记录从person1开始到每个顶点的长度
+		Queue<Integer> queue = new LinkedList<>();	//脕麓卤铆脢碌脧脰碌脛露脫脕脨
+		boolean[] visited = new boolean[this.Graph.size()];	//卤锚录脟路脙脦脢鹿媒碌脛陆脷碌茫碌脛脢媒脳茅
+		int[] distance = new int[this.Graph.size()];	//录脟脗录麓脫person1驴陋脢录碌陆脙驴赂枚露楼碌茫碌脛鲁陇露脠
 
-		/* 初始化访问节点数组和路径长度 */
+		/* 鲁玫脢录禄炉路脙脦脢陆脷碌茫脢媒脳茅潞脥脗路戮露鲁陇露脠 */
 		for (int i = 0; i < this.Graph.size(); i++) {
 			visited[i] = false;
 			distance[i] = -1;
 		}
 
-		distance[person1.getId()] = 0;		//自己到自己的路径是0
-		visited[person1.getId()] = true;	//从0号节点开始搜索
-		queue.offer(person1.getId());		//第一个person的ID入队
+		distance[person1.getId()] = 0;		//脳脭录潞碌陆脳脭录潞碌脛脗路戮露脢脟0
+		visited[person1.getId()] = true;	//麓脫0潞脜陆脷碌茫驴陋脢录脣脩脣梅
+		queue.offer(person1.getId());		//碌脷脪禄赂枚person碌脛ID脠毛露脫
 
-		while (!queue.isEmpty()) {			//BFS算法的主过程
-			int nowPerson = queue.poll();	//队头元素出队
+		while (!queue.isEmpty()) {			//BFS脣茫路篓碌脛脰梅鹿媒鲁脤
+			int nowPerson = queue.poll();	//露脫脥路脭陋脣脴鲁枚露脫
 			for(int i = 0; i < this.Graph.size(); i++){
 
 				if(this.Graph.get(nowPerson).get(i).equals(true)){
-					if(!visited[i]){		//尚未访问的邻接节点
-						distance[i] = distance[nowPerson] + 1;	//路径长度+1
-						visited[i] = true;	//标记为已访问
-						queue.offer(i);		//这个顶点入队
+					if(!visited[i]){		//脡脨脦麓路脙脦脢碌脛脕脷陆脫陆脷碌茫
+						distance[i] = distance[nowPerson] + 1;	//脗路戮露鲁陇露脠+1
+						visited[i] = true;	//卤锚录脟脦陋脪脩路脙脦脢
+						queue.offer(i);		//脮芒赂枚露楼碌茫脠毛露脫
 					}
 
 				}

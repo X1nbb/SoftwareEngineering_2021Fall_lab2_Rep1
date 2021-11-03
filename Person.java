@@ -1,10 +1,13 @@
 package P3;
 
-public class Person {
-	private String name;	//人名
-	private int id = -1;	//用于在邻接矩阵中确定这个人的位置
+//C4鍒嗘敮淇敼
 
-	/* 默认构造 */
+
+public class Person {
+	private String name;	//脠脣脙没
+	private int id = -1;	//脫脙脫脷脭脷脕脷陆脫戮脴脮贸脰脨脠路露篓脮芒赂枚脠脣碌脛脦禄脰脙
+
+	/* 脛卢脠脧鹿鹿脭矛 */
 	public Person(String name) {
 		this.name = name;
 	}
